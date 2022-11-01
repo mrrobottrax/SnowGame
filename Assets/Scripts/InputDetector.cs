@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class InputDetector : MonoBehaviour
 {
-    // target vars
+    // Stores the button presses from the last frame
     bool left;
     bool mid;
     bool right;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Detect the first frame a button is pressed
         if (Input.GetKey(KeyCode.A) && !left)
         {
             left = true;
@@ -34,6 +33,7 @@ public class InputDetector : MonoBehaviour
             Debug.Log("Right");
         }
 
+        // Set vars
         left = Input.GetKey(KeyCode.A);
         mid = Input.GetKey(KeyCode.W);
         right = Input.GetKey(KeyCode.D);

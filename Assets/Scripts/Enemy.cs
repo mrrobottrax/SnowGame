@@ -8,11 +8,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] float minTimeToAttack = 4;
     [SerializeField] float maxTimeToAttack = 4;
 
+    // The time it takes to play the throw animation
+    [SerializeField] float animationTime = 4;
+
     // Additional time to recover after being hit
     [SerializeField] float recoverTime = 3;
 
     // Time until the next attack
     float timeToAttack;
+
+    bool hiding = false;
 
     Animator animator;
 
@@ -43,6 +48,21 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("Throw"); // Play throw animation
         SetAttackTime();
+        timeToAttack += animationTime;
+    }
+
+    // Called when the player hits the enemy
+    public void Hit()
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        // Don't hit when the enemy is hiding
+        if (stateInfo.IsName("Hide") || stateInfo.IsName("Hide Idle"))
+            return;
+
+        animator.SetTrigger("Hit"); // Play hit animation
+        SetAttackTime();
+        timeToAttack += recoverTime;
     }
 
     // Update is called once per frame

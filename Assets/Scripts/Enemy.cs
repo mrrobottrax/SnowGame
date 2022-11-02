@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     // Time until the next attack
     float timeToAttack;
 
-    bool hiding = true;
+    bool hiding = false;
 
     Animator animator;
 
@@ -54,8 +54,10 @@ public class Enemy : MonoBehaviour
     // Called when the player hits the enemy
     public void Hit()
     {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
         // Don't hit when the enemy is hiding
-        if (hiding)
+        if (stateInfo.IsName("Hide") || stateInfo.IsName("Hide Idle"))
             return;
 
         animator.SetTrigger("Hit"); // Play hit animation

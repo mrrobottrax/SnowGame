@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a106b707655d7c419545a4876110bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimeToAttack: 3
-  maxTimeToAttack: 10
+  minTimeToAttack: 2
+  maxTimeToAttack: 8
+  animationTime: 2.5
   recoverTime: 3

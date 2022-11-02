@@ -13,14 +13,13 @@ public class InputDetector : MonoBehaviour
     [SerializeField] GameObject midGo;
     [SerializeField] GameObject rightGo;
 
+    [SerializeField] Enemy leftEnemy;
+    [SerializeField] Enemy midEnemy;
+    [SerializeField] Enemy rightEnemy;
+
     float leftTimer = 0;
     float midTimer = 0;
     float rightTimer = 0;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -59,19 +58,19 @@ public class InputDetector : MonoBehaviour
         {
             left = true;
             leftTimer = 1;
-            Debug.Log("Left");
+            leftEnemy.Hit();
         }
         if (Input.GetKey(KeyCode.W) && !mid)
         {
             mid = true;
             midTimer = 1;
-            Debug.Log("Mid");
+            midEnemy.Hit();
         }
         if (Input.GetKey(KeyCode.D) && !right)
         {
             right = true;
             rightTimer = 1;
-            Debug.Log("Right");
+            rightEnemy.Hit();
         }
 
         // Set vars

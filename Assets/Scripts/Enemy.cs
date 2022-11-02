@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
         // Don't hit when the enemy is hiding
-        if (stateInfo.IsName("Hide") || stateInfo.IsName("Hide Idle"))
+        if (stateInfo.IsName("Hide Idle"))
             return;
 
         animator.SetTrigger("Hit"); // Play hit animation

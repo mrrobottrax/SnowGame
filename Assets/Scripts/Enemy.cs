@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
     void Attack()
     {
         animator.SetTrigger("Throw"); // Play throw animation
-        source.PlayOneShot(popupSound);
+        //source.PlayOneShot(popupSound);
 
         SetAttackTime();
         timeToAttack += animationTime;
@@ -67,6 +67,8 @@ public class Enemy : MonoBehaviour
         source.PlayOneShot(hitSound);
         SetAttackTime();
         timeToAttack += recoverTime;
+
+        GameManager.Singleton.AddScore(20);
     }
 
     // Update is called once per frame

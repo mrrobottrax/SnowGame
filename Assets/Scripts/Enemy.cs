@@ -17,8 +17,6 @@ public class Enemy : MonoBehaviour
     // Time until the next attack
     float timeToAttack;
 
-    bool hiding = false;
-
     Animator animator;
 
     // Start is called before the first frame update

@@ -17,13 +17,11 @@ public class Enemy : MonoBehaviour
     // Time until the next attack
     float timeToAttack;
 
-    Animator animator;
+    [SerializeField] Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-
         SetAttackTime();
     }
 

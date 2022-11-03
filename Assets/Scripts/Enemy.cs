@@ -18,6 +18,11 @@ public class Enemy : MonoBehaviour
     float timeToAttack;
 
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource source;
+
+    // Sounds
+    [SerializeField] AudioClip hitSound;
+    [SerializeField] AudioClip popupSound;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +48,8 @@ public class Enemy : MonoBehaviour
     void Attack()
     {
         animator.SetTrigger("Throw"); // Play throw animation
+        source.PlayOneShot(popupSound);
+
         SetAttackTime();
         timeToAttack += animationTime;
     }
@@ -57,6 +64,7 @@ public class Enemy : MonoBehaviour
             return;
 
         animator.SetTrigger("Hit"); // Play hit animation
+        source.PlayOneShot(hitSound);
         SetAttackTime();
         timeToAttack += recoverTime;
     }

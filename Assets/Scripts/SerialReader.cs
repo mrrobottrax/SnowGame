@@ -45,6 +45,12 @@ public class SerialReader : MonoBehaviour
     private void FixedUpdate()
     {
         GameManager.Singleton.playerDucked = GetPlayerDucked();
+
+        // Override with space
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftControl))
+        {
+            GameManager.Singleton.playerDucked = true;
+        }
     }
 
     bool GetPlayerDucked()

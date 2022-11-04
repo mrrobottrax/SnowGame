@@ -11,6 +11,7 @@ public class SnowballSpawner : MonoBehaviour
 
     public void ThrowSnowball()
     {
-        Instantiate(snowball, spawner.position, Quaternion.AngleAxis(angle, Vector3.up));
+        if (GameManager.Singleton.gameState == GameManager.GameState.main)
+            Instantiate(snowball, spawner.position, Quaternion.AngleAxis(angle, Vector3.up));
     }
 }

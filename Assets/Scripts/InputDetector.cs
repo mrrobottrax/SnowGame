@@ -9,27 +9,53 @@ public class InputDetector : MonoBehaviour
     bool mid;
     bool right;
 
-    [SerializeField] Enemy leftEnemy;
-    [SerializeField] Enemy midEnemy;
-    [SerializeField] Enemy rightEnemy;
-
     void Update()
     {
         // Detect the first frame a button is pressed
         if (Input.GetKey(KeyCode.A) && !left)
         {
             left = true;
-            leftEnemy.Hit();
+
+            switch (GameManager.Singleton.gameState)
+            {
+                case GameManager.GameState.main:
+                    GameManager.Singleton.leftEnemy.Hit();
+                    break;
+
+                case GameManager.GameState.startScreen:
+                    GameManager.Singleton.StartGame();
+                    break;
+            }
         }
         if (Input.GetKey(KeyCode.W) && !mid)
         {
             mid = true;
-            midEnemy.Hit();
+
+            switch (GameManager.Singleton.gameState)
+            {
+                case GameManager.GameState.main:
+                    GameManager.Singleton.midEnemy.Hit();
+                    break;
+
+                case GameManager.GameState.startScreen:
+                    GameManager.Singleton.StartGame();
+                    break;
+            }
         }
         if (Input.GetKey(KeyCode.D) && !right)
         {
             right = true;
-            rightEnemy.Hit();
+
+            switch (GameManager.Singleton.gameState)
+            {
+                case GameManager.GameState.main:
+                    GameManager.Singleton.rightEnemy.Hit();
+                    break;
+
+                case GameManager.GameState.startScreen:
+                    GameManager.Singleton.StartGame();
+                    break;
+            }
         }
 
         // Set vars

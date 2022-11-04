@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float recoverTime = 3;
 
     // Time until the next attack
-    float timeToAttack;
+    float timeToAttack = 0;
 
     [SerializeField] Animator animator;
     [SerializeField] AudioSource source;
@@ -24,24 +24,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip hitSound;
     [SerializeField] AudioClip popupSound;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        SetAttackTime();
-    }
+    [SerializeField] ParticleSystem hitParticles;
 
-    void SetAttackTime()
+    public void SetAttackTime()
     {
         timeToAttack = Random.Range(minTimeToAttack, maxTimeToAttack);
     }
 
     void UpdateTimer()
     {
-        timeToAttack -= Time.deltaTime;
-
-        if (timeToAttack <= 0)
+        if (GameManager.Singleton.gameState == GameManager.GameState.main && timeToAttack <= 0)
         {
             Attack();
+        }
+        else if (timeToAttack > 0)
+        {
+            timeToAttack -= Time.deltaTime;
         }
     }
 
@@ -64,7 +62,9 @@ public class Enemy : MonoBehaviour
             return;
 
         animator.SetTrigger("Hit"); // Play hit animation
-        source.PlayOneShot(hitSound);
+        hitParticles.Play(); // Particles
+        source.PlayOneShot(hitSound); // Sound
+
         SetAttackTime();
         timeToAttack += recoverTime;
 

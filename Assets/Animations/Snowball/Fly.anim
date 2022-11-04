@@ -26,24 +26,24 @@ AnimationClip:
         tangentMode: 0
         weightedMode: 3
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.35819104}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.35139558}
       - serializedVersion: 3
         time: 0.16666667
-        value: {x: 0, y: 0.25, z: -1.1635253}
-        inSlope: {x: 0, y: 1.5, z: -8.094056}
-        outSlope: {x: 0, y: 2.7500002, z: -8.094056}
+        value: {x: 0, y: 0.25, z: -1.0442665}
+        inSlope: {x: 0, y: 1.5, z: -6.595919}
+        outSlope: {x: 0, y: 1.9642856, z: -6.595919}
         tangentMode: 0
         weightedMode: 3
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.30975676}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.4839461}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.3159424}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.4964882}
       - serializedVersion: 3
-        time: 1.1666666
+        time: 1.5666667
         value: {x: 0, y: 3, z: -15}
-        inSlope: {x: 0, y: 2.7500002, z: -9.902654}
+        inSlope: {x: 0, y: 1.9642856, z: -9.902654}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 3
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.35862726}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.353877}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -72,7 +72,7 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 1.1666666
+        time: 1.5666667
         value: {x: 1, y: 1, z: 1}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -99,7 +99,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.1666666
+    m_StopTime: 1.5666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -128,7 +128,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.1666666
+        time: 1.5666667
         value: 0
         inSlope: 0
         outSlope: 0
@@ -159,15 +159,15 @@ AnimationClip:
         time: 0.16666667
         value: 0.25
         inSlope: 1.5
-        outSlope: 2.7500002
+        outSlope: 1.9642856
         tangentMode: 69
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.1666666
+        time: 1.5666667
         value: 3
-        inSlope: 2.7500002
+        inSlope: 1.9642856
         outSlope: 0
         tangentMode: 69
         weightedMode: 3
@@ -193,7 +193,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.5308411
       - serializedVersion: 3
-        time: 1.1666666
+        time: 1.5666667
         value: -15
         inSlope: -9.902654
         outSlope: 0
@@ -230,7 +230,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.1666666
+        time: 1.5666667
         value: 1
         inSlope: 0
         outSlope: 0
@@ -267,7 +267,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.1666666
+        time: 1.5666667
         value: 1
         inSlope: 0
         outSlope: 0
@@ -295,7 +295,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.1666666
+        time: 1.5666667
         value: 1
         inSlope: 0
         outSlope: 0
@@ -314,14 +314,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.81666666
+  - time: 1.2333333
     functionName: TestHit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.1666666
+  - time: 1.5666667
     functionName: Kill
     data: 
     objectReferenceParameter: {fileID: 0}

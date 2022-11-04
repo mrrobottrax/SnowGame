@@ -11,8 +11,14 @@ public class SerialReader : MonoBehaviour
 
     int value;
 
-    int[] distanceHistory = new int[200];
-    int index = 0;
+    [SerializeField] float avgTime = 0.5f; // Time to average values over
+    List<Distance> distanceHistory = new List<Distance>();
+
+    struct Distance
+    {
+        public int dist;
+        public float time;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +39,18 @@ public class SerialReader : MonoBehaviour
             }
         }
 
-        distanceHistory[index] = value;
-        index++;
-
-        if (index >= distanceHistory.Length)
+        distanceHistory.Add(new Distance
         {
-            index = 0;
+            dist = value,
+            time = Time.time
+        });
+
+        for (int i = distanceHistory.Count - 1; i >= 0; i--)
+        {
+            if (distanceHistory[i].time <= Time.time - avgTime)
+            {
+                distanceHistory.RemoveAt(i);
+            }
         }
     }
 
@@ -55,23 +67,62 @@ public class SerialReader : MonoBehaviour
 
     bool GetPlayerDucked()
     {
-        // Average distance history
-        int sum = 0;
+        float val = GetMin();
 
-        for (int i = 0; i < distanceHistory.Length; i++)
-        {
-            sum += distanceHistory[i];
-        }
+        //Debug.Log(val);
 
-        float avg = sum / distanceHistory.Length;
-
-        //Debug.Log(avg);
-
-        if (avg > maxDist)
+        if (val > maxDist)
         {
             return true;
         }
 
         return false;
+    }
+
+    float GetAvg()
+    {
+        // Average distance history
+        int sum = 0;
+
+        int size = distanceHistory.Count;
+        for (int i = 0; i < size; i++)
+        {
+            sum += distanceHistory[i].dist;
+        }
+
+        // Avoid divide by 0
+        float avg;
+        if (size != 0)
+        {
+            avg = sum / size;
+        }
+        else
+        {
+            avg = 0;
+        }
+
+        return avg;
+    }
+
+    int GetMin()
+    {
+        int size = distanceHistory.Count;
+
+        if (size > 0)
+        {
+            int min = distanceHistory[0].dist;
+
+            for (int i = 0; i < size; i++)
+            {
+                if (distanceHistory[i].dist < min)
+                {
+                    min = distanceHistory[i].dist;
+                }
+            }
+
+            return min;
+        }
+
+        return 0;
     }
 }

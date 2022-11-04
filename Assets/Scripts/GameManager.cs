@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     {
         playerSounds.PlayOneShot(duckMiss);
 
-        AddScore(5);
+        //AddScore(5);
     }
 
     public void AddScore(int add)
